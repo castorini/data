@@ -28,3 +28,39 @@ dev-less-than-40.manual-edit.xml:   DEV in paper
 test-less-than-40.manual-edit.xml:  TEST in paper
 ```
 
+# DEPENDENCIES
+
+- python 3.6
+- [pytorch](http://pytorch.org/)
+- numpy
+- sklearn
+- nltk
+- scipy
+
+
+# EMBEDDINGS
+
+The pre-initialized word2vec embeddings have to be downloaded from [here](https://drive.google.com/folderview?id=0B-yipfgecoSBfkZlY2FFWEpDR3M4Qkw5U055MWJrenE5MTBFVXlpRnd0QjZaMDQxejh1cWs&usp=sharing).
+
+
+
+# BUILD TrecQA Dataset
+
+```
+python3 parse.py
+
+python3 overlap_features.py
+
+python3 build_vocab.py
+```
+
+The above command will parse the XML file into <question, answer> pairs into different folder:
+
++ `TRAIN.xml: train/`
++ `TRAIN-ALL.xml: train-all/`
++ `DEV.xml: raw-dev/`
++ `TEST.xml:raw-test/`
+
+We also calulate the 4 overlapping features between each question and answer pair and save them into different folder.
+
+build_vocab.py will save all the tokens appear in the question and answer pairs for loading corresponding word embeddings. 

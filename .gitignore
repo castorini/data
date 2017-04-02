@@ -1,2 +1,8 @@
 *~
 .DS_Store
+TrecQA/train-all
+TrecQA/train
+TrecQA/raw-test
+TrecQA/raw-dev
+TrecQA/vocab.txt
+TrecQA/word2dfs.p
