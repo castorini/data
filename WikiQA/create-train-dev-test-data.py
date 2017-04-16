@@ -38,6 +38,8 @@ def write_out(infile, out_folder):
 
     tokenizer = TreebankWordTokenizer()
 
+    qid_count = 0
+    qid_old = None
     with open(infile) as inf:
         inf.readline() # header
         for line in inf:
@@ -46,7 +48,10 @@ def write_out(infile, out_folder):
             question = ' '.join(tokenizer.tokenize(fields[1]))
             sentence = ' '.join(tokenizer.tokenize(fields[5]))
             label = fields[6]
-            qids.append(qid)
+            if qid != qid_old:
+                qid_old = qid
+                qid_count += 1
+            qids.append(str(qid_count))
             questions.append(question)
             answers.append(sentence)
             labels.append(label)

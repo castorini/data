@@ -52,6 +52,8 @@ python3 parse.py
 python3 overlap_features.py
 
 python3 build_vocab.py
+
+python3 build_qrels.py
 ```
 
 The above command will parse the XML file into <question, answer> pairs into different folder:
