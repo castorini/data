@@ -106,8 +106,12 @@ def compute_dfs(docs):
     for w in set(doc):
       word2df[w] += 1.0
   num_docs = len(docs)
+  # np.random.seed(1234)
   for w, value in word2df.items():
-    word2df[w] /= np.math.log(num_docs / value)
+    # word2df[w] /= np.math.log(num_docs / value)  # bug feats
+    word2df[w] = np.math.log(num_docs / value)   # bug feats fixed
+    # word2df[w] = 0.0    # bug feats zero
+    # word2df[w] = np.math.log(num_docs / np.random.randint(1, num_docs))
 
   return word2df
 
