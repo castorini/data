@@ -21,15 +21,15 @@ def convert(infilename, outfilename):
             fo.write( '<%s>\t<%s>\t<%s>\t.\n' % (sub, rel, obj) )
     print(len(triple_dict))
 
-# if __name__ == '__main__':
-#     try:
-#         in_fn = sys.argv[1]
-#         out_fn = sys.argv[2]
-#         print("Input: {}".format(in_fn))
-#         print("Output: {}".format(out_fn))
-#     except:
-#         print("ERROR: Wrong format.")
-#         print("USAGE: python generate_ntriples.py [freebase_subset_file] [output_filename]")
-#
-#     convert(in_fn, out_fn)
-#     print("Converted freebase-subset to NTriples format.")
+if __name__ == '__main__':
+    try:
+        in_fn = sys.argv[1]
+        out_fn = sys.argv[2]
+        print("Input: {}".format(in_fn))
+        print("Output: {}".format(out_fn))
+    except:
+        print("ERROR: Wrong format.")
+        print("USAGE: python generate_ntriples.py [freebase_subset_file] [output_filename]")
+
+    convert(in_fn, out_fn)
+    print("Converted freebase-subset to NTriples format.")
