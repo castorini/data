@@ -7,3 +7,4 @@ TrecQA/raw-dev
 TrecQA/vocab.txt
 TrecQA/word2dfs.p
 word2vec/
+.idea/
