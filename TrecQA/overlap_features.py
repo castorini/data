@@ -16,23 +16,23 @@ def load_data(dname):
   stemmer = PorterStemmer()
   qids, questions, answers, labels = [], [], [], []
   print ('Load folder '+dname)
-  with open(dname+'a.toks') as f:
+  with open(dname+'a.toks', encoding='utf-8') as f:
     for line in f:
       # line = str(line, errors='ignore')
       question = line.strip().split()
       question = [stemmer.stem(word) for word in question]
       questions.append(question)
-  with open(dname+'b.toks') as f:
+  with open(dname+'b.toks', encoding='utf-8') as f:
     for line in f:
       # line = str(line, errors='ignore')
       # answer = line.decode('utf-8').strip().split()
       answer = line.strip().split()
       answer = [stemmer.stem(word) for word in answer]
       answers.append(answer)
-  with open(dname+'id.txt') as f:
+  with open(dname+'id.txt', encoding='utf-8') as f:
     for line in f:
       qids.append(line.strip())
-  with open(dname+'sim.txt') as f:
+  with open(dname+'sim.txt', encoding='utf-8') as f:
     for line in f:
       labels.append(int(line.strip())) 
   return qids, questions, answers, labels
@@ -120,7 +120,7 @@ if __name__ == '__main__':
   # ap.add_argument("dataset", help="path/to/dataset-directory", default="./TrecQA/")
   # args = ap.parse_args()
 
-  stoplist = set([line.strip() for line in open('stopwords.txt')])
+  stoplist = set([line.strip() for line in open('stopwords.txt', encoding='utf-8')])
   
   punct = set(string.punctuation)
   stoplist.update(punct) 

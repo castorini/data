@@ -5,12 +5,12 @@ import argparse
 def build_vocab(filepaths, dst_path, lowercase=True):
     vocab = set()
     for filepath in filepaths:
-        with open(filepath) as f:
+        with open(filepath, encoding='utf-8') as f:
             for line in f:
                 if lowercase:
                     line = line.lower()
                 vocab |= set(line.split())
-    with open(dst_path, 'w') as f:
+    with open(dst_path, 'w', encoding='utf-8') as f:
         for w in sorted(vocab):
             f.write(w + '\n')
 

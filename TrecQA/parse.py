@@ -11,7 +11,7 @@ UNKNOWN_WORD_IDX = 0
 
 
 def load_data(fname):
-  lines = open(fname).readlines()
+  lines = open(fname, encoding='utf-8').readlines()
   qids, questions, answers, labels = [], [], [], []
   num_skipped = 0
   prev = ''
@@ -59,13 +59,13 @@ def write_to_file(xmlF,outdir):
   
   qids, questions, answers, labels = load_data(xmlF)
   
-  qid_file = open(outdir+'/id.txt','w')
+  qid_file = open(outdir+'/id.txt','w', encoding='utf-8')
   for qid in qids:
     qid_file.write(qid+'\n')
   qid_file.close()
 
 
-  questions_file = open(outdir+'/a.toks','w')
+  questions_file = open(outdir+'/a.toks','w', encoding='utf-8')
   for q in questions:
     # q_toks = TreebankWordTokenizer().tokenize(' '.join(q))
     q_str = ' '.join(q).lower()
@@ -73,7 +73,7 @@ def write_to_file(xmlF,outdir):
   questions_file.close()
 
 
-  answers_file = open(outdir+'/b.toks','w')
+  answers_file = open(outdir+'/b.toks','w', encoding='utf-8')
   for a in answers:
     # a_toks = TreebankWordTokenizer().tokenize(' '.join(a))
     a_str = ' '.join(a).lower()
@@ -81,7 +81,7 @@ def write_to_file(xmlF,outdir):
   answers_file.close()
 
 
-  sim_file = open(outdir+'/sim.txt','w')
+  sim_file = open(outdir+'/sim.txt','w', encoding='utf-8')
   for label in labels:
     sim_file.write(str(label)+'\n')
   sim_file.close()
