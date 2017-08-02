@@ -1,10 +1,17 @@
 *~
+*.swp
 .DS_Store
+GloVe/glove.840B.300d.txt
+GloVe/glove.840B.300d.zip
 TrecQA/train-all
 TrecQA/train
 TrecQA/raw-test
 TrecQA/raw-dev
 TrecQA/vocab.txt
 TrecQA/word2dfs.p
+TrecQA/gold.txt
+TrecQA/submission.txt
+TrecQA/submission.txt.treceval
 word2vec/
 .idea/
+__pycache__/
