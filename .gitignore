@@ -2,6 +2,7 @@
 *.swp
 .DS_Store
 GloVe/glove.840B.300d.txt
+GloVe/glove.840B.300d.txt.pt
 GloVe/glove.840B.300d.zip
 ParagramEmbeddings/paragram_vectors.txt
 TrecQA/train-all
