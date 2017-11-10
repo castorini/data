@@ -9,18 +9,18 @@ def build_vocab(filepaths, dst_path, lowercase=True):
     """
     vocab = set()
     for filepath in filepaths:
-        with open(filepath) as f:
+        with open(filepath, encoding='utf-8') as f:
             for line in f:
                 if lowercase:
                     line = line.lower()
                 vocab |= set(line.split())
-    with open(dst_path, 'w') as f:
+    with open(dst_path, 'w', encoding='utf-8') as f:
         for w in sorted(vocab):
             f.write(w + '\n')
 
 
 def dump(data, outfile):
-    with open(outfile, 'w') as outf:
+    with open(outfile, 'w', encoding='utf-8') as outf:
         outf.write('\n'.join(data) + '\n')
 
 
@@ -28,9 +28,9 @@ def write_out(infile, out_folder):
     if not os.path.exists(out_folder):
         os.mkdir(out_folder)
 
-    qfile = open(os.path.join(out_folder, 'a.toks'), 'w')
-    afile = open(os.path.join(out_folder, 'b.toks'), 'w')
-    lfile = open(os.path.join(out_folder, 'sim.txt'), 'w')
+    qfile = open(os.path.join(out_folder, 'a.toks'), 'w', encoding='utf-8')
+    afile = open(os.path.join(out_folder, 'b.toks'), 'w', encoding='utf-8')
+    lfile = open(os.path.join(out_folder, 'sim.txt'), 'w', encoding='utf-8')
 
     qids = []
     questions = []
@@ -45,7 +45,7 @@ def write_out(infile, out_folder):
     qid_questions = []
     qid_answers = []
     qid_qids = []
-    with open(infile) as inf:
+    with open(infile, encoding='utf-8') as inf:
         inf.readline() # header
         for line in inf:
             fields = line.lower().strip().split('\t')
@@ -76,8 +76,8 @@ def write_out(infile, out_folder):
     dump(qids, os.path.join(out_folder, 'id.txt'))
 
     if out_folder == 'train':
-        with open(os.path.join('WikiQACorpus', 'WikiQA-{}.ref'.format(out_folder))) as inqrel:
-            with open('{}.qrel'.format(out_folder), 'w') as outqrel:
+        with open(os.path.join('WikiQACorpus', 'WikiQA-{}.ref'.format(out_folder)), encoding='utf-8') as inqrel:
+            with open('{}.qrel'.format(out_folder), 'w', encoding='utf-8') as outqrel:
                 outqids = set(qids)
                 for line in inqrel:
                     qid, zero, docid, label = line.strip().split()
